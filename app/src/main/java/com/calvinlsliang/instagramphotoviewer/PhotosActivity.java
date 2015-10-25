@@ -70,6 +70,7 @@ public class PhotosActivity extends AppCompatActivity {
                             public int likesCount;
                          */
                         photo.username = photoJSON.getJSONObject("user").getString("username");
+                        photo.profileUrl = photoJSON.getJSONObject("user").getString("profile_picture");
                         photo.caption = photoJSON.getJSONObject("caption").getString("text");
 
                         JSONObject image = photoJSON.getJSONObject("images").getJSONObject("standard_resolution");

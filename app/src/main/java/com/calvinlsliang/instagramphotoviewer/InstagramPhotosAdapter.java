@@ -35,17 +35,22 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         // Look up view for populating data
         TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
         TextView tvUsername = (TextView) convertView.findViewById(R.id.tvUsername);
+        TextView tvUsernameBody = (TextView) convertView.findViewById(R.id.tvUsernameBody);
         ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
+        ImageView ivProfile = (ImageView) convertView.findViewById(R.id.ivProfile);
 
         // Insert model data into each view items
         tvCaption.setText(photo.caption);
         tvUsername.setText(photo.username);
+        tvUsernameBody.setText(photo.username);
 
         // Clear out ImageView
         ivPhoto.setImageResource(android.R.color.transparent);
+        ivProfile.setImageResource(android.R.color.transparent);
 
         // Insert image via Picasso
         Picasso.with(getContext()).load(photo.imageUrl).into(ivPhoto);
+        Picasso.with(getContext()).load(photo.profileUrl).into(ivProfile);
 
         // Return created item as a View
         return convertView;
