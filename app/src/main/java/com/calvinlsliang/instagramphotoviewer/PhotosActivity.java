@@ -13,7 +13,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -77,6 +79,14 @@ public class PhotosActivity extends AppCompatActivity {
                         photo.imageUrl = image.getString("url");
                         photo.imageHeight = image.getInt("height");
                         photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("MMM F, yyyy");
+                        Long unixTime = Long.parseLong(photoJSON.getString("created_time"))*1000L;
+                        Date date = new Date(unixTime);
+                        String formattedDate = sdf.format(date);
+
+                        photo.createdTime = formattedDate;
+
 
                         photos.add(photo);
                     }
