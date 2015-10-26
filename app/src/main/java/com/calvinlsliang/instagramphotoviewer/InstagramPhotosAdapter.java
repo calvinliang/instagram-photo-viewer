@@ -36,6 +36,8 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
         TextView tvUsername = (TextView) convertView.findViewById(R.id.tvUsername);
         TextView tvUsernameBody = (TextView) convertView.findViewById(R.id.tvUsernameBody);
+        TextView tvLikes = (TextView) convertView.findViewById(R.id.tvLikes);
+        TextView tvTime = (TextView) convertView.findViewById(R.id.tvTime);
         ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
         ImageView ivProfile = (ImageView) convertView.findViewById(R.id.ivProfile);
 
@@ -43,6 +45,8 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         tvCaption.setText(photo.caption);
         tvUsername.setText(photo.username);
         tvUsernameBody.setText(photo.username);
+        tvLikes.setText(Integer.toString(photo.likesCount));
+        tvTime.setText(photo.createdTime);
 
         // Clear out ImageView
         ivPhoto.setImageResource(android.R.color.transparent);
